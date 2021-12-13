@@ -22,15 +22,15 @@ for host in host_aggregates:
     print(f"{colname} AVERAGE: {host_aggregates[colname]['mean']}")
     print("")
 
-if "json" or "all" in sys.argv:
+if "json" in sys.argv:
     host_aggregates.to_json("host_aggregates.json")
 
-if "xml" or "all" in sys.argv:
+if "xml" in sys.argv:
     with open("host_aggregates.xml", "w") as xml_file:
         xml_file.write(dict2xml(host_aggregates.to_dict()))
         xml_file.close
 
-if "yaml" or "all" in sys.argv:
+if "yaml" in sys.argv:
     with open(r"host_aggregates.yaml", "w") as yaml_file:
         yaml.dump(
             host_aggregates.to_dict(),
